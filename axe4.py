@@ -14,7 +14,7 @@ for index in range(1, 25):
 	req = urllib2.Request(url)
 	req.add_header('Accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8')
 	req.add_header('User-Agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_1) AppleWebKit/537.73.11 (KHTML, like Gecko) Version/7.0.1 Safari/537.73.11')
-	if (last_url):
+	if last_url:
 		req.add_header('Referer', last_url)
 	last_url = url
 
