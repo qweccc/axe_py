@@ -2,10 +2,9 @@
 # encoding: utf-8
 # http://axe.g0v.tw/level/4
 
-import urllib, urllib2, re
+import urllib2, re
 
-lines = []
-last_url = None
+lines = []; last_url = None
 
 def parse_page(index):
 	global last_url
@@ -27,8 +26,7 @@ def parse_page(index):
 	for result in results:
 		lines.append(format % tuple(result))
 
-for i in range(1, 25):
-	parse_page(i)
+for i in range(1, 25): parse_page(i)
 
 with open("test.txt", "w") as f:
 	f.write("[%s]" % ",\n".join(lines))

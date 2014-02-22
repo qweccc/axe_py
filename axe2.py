@@ -2,7 +2,7 @@
 # encoding: utf-8
 # http://axe.g0v.tw/level/2
 
-import urllib, urllib2, re
+import urllib2, re
 
 lines = []
 

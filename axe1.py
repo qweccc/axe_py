@@ -2,7 +2,7 @@
 # encoding: utf-8
 # http://axe.g0v.tw/level/1
 
-import urllib, urllib2, re
+import urllib2, re
 
 html = urllib2.urlopen("http://axe-level-1.herokuapp.com").read()
 pattern = r"<tr>\s*<td>(.*)</td>\s*<td>(.*)</td>\s*<td>(.*)</td>\s*<td>(.*)</td>\s*<td>(.*)</td>\s*<td>(.*)</td>\s*</tr>"

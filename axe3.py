@@ -2,12 +2,11 @@
 # encoding: utf-8
 # http://axe.g0v.tw/level/3
 
-import urllib, urllib2, re
-import cookielib
+import urllib2, re, cookielib
 
 lines = []
 
-# The hint is that we need to receive cookies.
+# The hint is that we need to accept cookies.
 jar = cookielib.FileCookieJar("cookies")
 opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(jar))
 
@@ -21,8 +20,7 @@ def parse_page(index):
 	for result in results:
 		lines.append(format % tuple(result))
 
-for i in range(1, 77):
-	parse_page(i)
+for i in range(1, 77): parse_page(i)
 
 with open("test.txt", "w") as f:
 	f.write("[%s]" % ",\n".join(lines))
