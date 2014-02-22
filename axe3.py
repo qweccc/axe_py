@@ -10,7 +10,7 @@ lines = []
 jar = cookielib.FileCookieJar("cookies")
 opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(jar))
 
-def parse_page(index):
+for index in range(1, 77):
 	url = "http://axe-level-1.herokuapp.com/lv3/" if index == 1 \
 		else "http://axe-level-1.herokuapp.com/lv3/?page=next"
 	html = opener.open(url).read()
@@ -19,8 +19,6 @@ def parse_page(index):
 	format = '{"town": "%s", "village": "%s", "name" : "%s"}'
 	for result in results:
 		lines.append(format % tuple(result))
-
-for i in range(1, 77): parse_page(i)
 
 with open("test.txt", "w") as f:
 	f.write("[%s]" % ",\n".join(lines))

@@ -6,8 +6,7 @@ import urllib2, re
 
 lines = []; last_url = None
 
-def parse_page(index):
-	global last_url
+for index in range(1, 25):
 	url = "http://axe-level-4.herokuapp.com/lv4/" if index == 1 \
 		else "http://axe-level-4.herokuapp.com/lv4/?page=" + str(index)
 
@@ -25,8 +24,6 @@ def parse_page(index):
 	format = '{"town": "%s", "village": "%s", "name" : "%s"}'
 	for result in results:
 		lines.append(format % tuple(result))
-
-for i in range(1, 25): parse_page(i)
 
 with open("test.txt", "w") as f:
 	f.write("[%s]" % ",\n".join(lines))
